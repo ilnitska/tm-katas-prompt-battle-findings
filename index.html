@@ -258,6 +258,70 @@
   }
   .logic-note a { color: var(--accent); text-decoration: underline; }
 
+  /* MISTAKES TABLE */
+  .mistakes-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    font-size: 13.5px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .mistakes-table col.c-num     { width: 7%; }
+  .mistakes-table col.c-name    { width: 36%; }
+  .mistakes-table col.c-wrong   { width: 27%; }
+  .mistakes-table col.c-correct { width: 30%; }
+  .mistakes-table thead th {
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+  .mistakes-table thead th:last-child { border-right: none; }
+  .mistakes-table thead th.col-num   { color: var(--ink-muted); }
+  .mistakes-table thead th.col-name  { color: var(--ink-muted); }
+  .mistakes-table thead th.col-wrong { color: var(--red); }
+  .mistakes-table thead th.col-correct { color: var(--green); }
+  .mistakes-table tbody td {
+    padding: 14px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .mistakes-table tbody td:last-child { border-right: none; }
+  .mistakes-table tbody tr:last-child td { border-bottom: none; }
+  .mistakes-table td.num {
+    text-align: center;
+    vertical-align: middle;
+    padding: 14px 4px;
+  }
+  .mistakes-table td.num span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #6b63e8;
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .mistakes-table td.num span.maybe-num { background: var(--gold); }
+  .mistakes-table td.name { color: var(--ink); font-weight: 500; }
+  .mistakes-table b { color: var(--ink); font-weight: 600; }
+
   /* FOOTER */
   .footer {
     text-align: center;
@@ -284,111 +348,63 @@
     <p>All meaningful mistakes identified in the invoice, compared against the MSR report and fee schedule.</p>
   </div>
 
-  <!-- ERROR 1 -->
+  <!-- MISTAKES TABLE -->
   <div class="section">
-    <div class="section-header">
-      <div class="section-num">1</div>
-      <div class="section-title">Taras Shevchenko — 3rd dependent government fee</div>
-    </div>
-    <div class="section-body">
-      <div class="diff-row">
-        <div class="diff-box wrong">
-          <div class="diff-label wrong-lbl">Wrong</div>
-          <p><b>12,800 SAR</b></p>
-        </div>
-        <div class="diff-arrow">→</div>
-        <div class="diff-box correct">
-          <div class="diff-label correct-lbl">Correct</div>
-          <p><b>13,800 SAR</b></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ERROR 2 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">2</div>
-      <div class="section-title">Ivan Ivanov and dependent — rate from a wrong service type applied (work permit issuance vs. renewal)</div>
-    </div>
-    <div class="section-body">
-      <div class="diff-row">
-        <div class="diff-box wrong">
-          <div class="diff-label wrong-lbl">Wrong</div>
-          <p><b>15,150 SAR</b> for Ivan Ivanov</p>
-          <p><b>13,800 SAR</b> for Ivan Ivanov's dependent</p>
-        </div>
-        <div class="diff-arrow">→</div>
-        <div class="diff-box correct">
-          <div class="diff-label correct-lbl">Correct</div>
-          <p><b>20,150 SAR</b> for Ivan Ivanov</p>
-          <p><b>15,500 SAR</b> for Ivan Ivanov's dependent</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ERROR 3 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">3</div>
-      <div class="section-title">Extra service — monthly complex relocation not in fee schedule</div>
-    </div>
-    <div class="section-body">
-      <div class="diff-row">
-        <div class="diff-box wrong">
-          <div class="diff-label wrong-lbl">Wrong</div>
-          <p>Monthly complex relocation service for <b>2,200 SAR</b></p>
-        </div>
-        <div class="diff-arrow">→</div>
-        <div class="diff-box correct">
-          <div class="diff-label correct-lbl">Correct</div>
-          <p>This service does not exist in the agreed fee schedule and must not be charged</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ERROR 4 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">4</div>
-      <div class="section-title">Incorrect buyer entity on the invoice</div>
-    </div>
-    <div class="section-body">
-      <div class="diff-row">
-        <div class="diff-box wrong">
-          <div class="diff-label wrong-lbl">Wrong</div>
-          <p>EPAM Systems FZ-LLC (Dubai, UAE)</p>
-        </div>
-        <div class="diff-arrow">→</div>
-        <div class="diff-box correct">
-          <div class="diff-label correct-lbl">Correct</div>
-          <p>EPAM Systems Limited Company (Riyadh, Saudi Arabia) as listed in the fee schedule</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ERROR 5 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num maybe">5</div>
-      <div class="section-title">Incorrect invoice total (cumulative impact of errors 1–3)</div>
-    </div>
-    <div class="section-body">
-      <p style="font-size:13.5px; color:var(--ink-soft); line-height:1.6;">The invoice grand total is incorrect as a direct consequence of errors 1–3. Once the wrong government fee, wrong rate type, and non-existent service are corrected, the total changes.</p>
-    </div>
-  </div>
-
-  <!-- ERROR 6 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num maybe">6</div>
-      <div class="section-title">Anything else your LLM found?</div>
-    </div>
-    <div class="section-body">
-      <p style="font-size:13.5px; color:var(--ink-soft); line-height:1.6;">Did your prompt surface anything we haven't covered? Share any additional findings your model flagged!</p>
+    <div class="section-body" style="padding:20px 24px 24px;">
+      <table class="mistakes-table">
+        <colgroup>
+          <col class="c-num">
+          <col class="c-name">
+          <col class="c-wrong">
+          <col class="c-correct">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="col-num">#</th>
+            <th class="col-name">Mistake</th>
+            <th class="col-wrong">Wrong</th>
+            <th class="col-correct">Correct</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><span>1</span></td>
+            <td class="name">Wrong government fee for Taras Shevchenko's 3rd dependent</td>
+            <td><b>12,800 SAR</b></td>
+            <td><b>13,800 SAR</b></td>
+          </tr>
+          <tr>
+            <td class="num"><span>2</span></td>
+            <td class="name">Rate from a wrong service type applied for Ivan Ivanov and dependent (WP issuance vs. renewal)</td>
+            <td><b>15,150 SAR</b> for Ivan<br><b>13,800 SAR</b> for dependent</td>
+            <td><b>20,150 SAR</b> for Ivan<br><b>15,500 SAR</b> for dependent</td>
+          </tr>
+          <tr>
+            <td class="num"><span>3</span></td>
+            <td class="name">Extra service charged — monthly complex relocation</td>
+            <td><b>2,200 SAR</b></td>
+            <td>This service does not exist in the agreed fee schedule and must not be charged</td>
+          </tr>
+          <tr>
+            <td class="num"><span>4</span></td>
+            <td class="name">Incorrect buyer entity on the invoice</td>
+            <td>EPAM Systems FZ-LLC (Dubai, UAE)</td>
+            <td>EPAM Systems Limited Company (Riyadh, Saudi Arabia)</td>
+          </tr>
+          <tr>
+            <td class="num"><span class="maybe-num">5</span></td>
+            <td class="name">Incorrect invoice total</td>
+            <td><b>131,256.75 SAR</b></td>
+            <td><b>136,756.75 SAR</b> (cumulative impact of errors 1–3)</td>
+          </tr>
+          <tr>
+            <td class="num"><span class="maybe-num">...</span></td>
+            <td class="name">Anything else your LLM caught that we missed?</td>
+            <td>Share any additional findings!</td>
+            <td>We'll pretend we left it out on purpose :)</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -429,7 +445,7 @@
         </li>
       </ul>
       <div class="logic-note">
-        <strong>Why these?</strong> This task involves strictly confidential data. Only tools approved for that confidentiality class may be used. Full guidance at <a href="https://kb.epam.com/x/Bu_5pg" target="_blank">AI Compliance for People Professionals KB</a>.
+        <strong>Why these?</strong> This task involves strictly confidential data. Only tools approved for that confidentiality class should be used. Full guidance at <a href="https://kb.epam.com/x/Bu_5pg" target="_blank">AI Compliance for People Professionals KB</a>.
       </div>
     </div>
   </div>
